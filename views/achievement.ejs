@@ -1,0 +1,142 @@
+<!-- CSS -->
+<link rel="stylesheet" href="achievement.css">
+
+<%if (!login_info){ %> 
+
+  <!-- Banner -->
+  <div class="banner">
+    <div class="content">
+      <h2>Achievement & Gratitude</h2>
+      <p>Gratitude promotes optimism and helps us to develop a more positive outlook. 
+      It lets us pause for a moment to reflect on something we have in our life right 
+      now instead of always striving for more.</p>
+      <a href="/users/login" class="button mr-2">Log in</a>
+      <a href="/users/register" class="button">Register</a>
+    </div>
+    <img src="animation.gif" class="image">
+  </div>
+
+  <!-- Manual -->
+  <section class="manual">
+    <h1 class="manual-title">Achievement & Gratitude Page User Guide</h1>
+
+    <div class="manual-items">
+      <div class="manual-item">
+        <div class="step-dot"></div>
+        <div class="step-content">
+          <h3>1st step</h3>
+          <p>Register on the website via email and go to the achievements page.</p>
+        </div>
+      </div>
+      <div class="manual-item">
+        <div class="step-dot"></div>
+          <div class="step-content">
+            <h3>2nd step</h3>
+            <p>Record the accomplishments (even the most insignificant), events, and people who are worth being grateful for.</p>
+          </div>
+      </div>
+      <div class="manual-item">
+        <div class="step-dot"></div>
+        <div class="step-content">
+          <h3>3rd step</h3>
+          <p>Save your writings by clicking on the button on the left side.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<% }  else { %> 
+
+  <!-- Achivement & Gratitude table-->
+  <section class="achievement_main">
+    <h1 class="title_table">Achievement & Gratitude</h1>
+
+    <table class="table">
+      <thead>
+        <th> </th>
+        <th>Week 1</th>
+        <th>Week 2</th> 
+        <th>Week 3</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="" class="block_bold">
+            <div class="block">Achievement</div>
+          </td>
+          <td data-label="Week 1"> 
+            <div class="recent_plans">
+              <table>
+                <tbody>
+                  <% newListItemsDash.forEach(function(item){ %>        
+                    <tr><td><%=item.name%></td></tr>   
+                  <% }) %>
+                    <tr>
+                      <form action="/weeklyDoneDelete" method="post">
+                        <td>
+                          <button type="submit" class="sbbutton"name="list">Delete All</button>
+                        </td>
+                      </form>
+                    </tr>
+                </tbody>
+              </table>
+            </div>
+          </td>
+          <td data-label="Week 2"> 
+            <div class="recent_plans">
+              <table>
+                <tbody>
+                  <% newListItemsDash2.forEach(function(item){ %>        
+                    <tr><td><%=item.name%></td></tr>   
+                  <% }) %>
+                    <tr>
+                      <form action="/weeklyDoneDelete2" method="post">
+                        <td>
+                          <button type="submit" class="sbbutton"name="list">Delete All</button>
+                        </td>
+                      </form>
+                    </tr>
+                </tbody>
+              </table>
+            </div>
+          </td>
+          <td data-label="Week 3">
+            <div class="recent_plans">
+              <table>
+                <tbody>
+                  <% newListItemsDash3.forEach(function(item){ %>        
+                    <tr><td><%=item.name%></td></tr>   
+                  <% }) %>
+                    <tr>
+                      <form action="/weeklyDoneDelete3" method="post">
+                        <td>
+                          <button type="submit" class="sbbutton" name="list" >Delete All</button>
+                        </td>
+                      </form>
+                    </tr>
+                </tbody>
+              </table>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <form  action="/achievement" method="post">
+            <td data-label="" class="block_bold">
+              <div class="block">Gratitude<br>
+                <button class="save_btn" type="submit" name="list">Save</button>
+              </div>
+            </td>
+            <!-- Week 1 -->
+            <td data-label="Week 1"><textarea name="txt1" cols="16" rows="8" ><%= itemtab[0].name %></textarea></td>
+              <input type="hidden" name="idtxt1" value="<%=itemtab[0].id%>"></input>
+            <!-- Week 2 -->
+            <td data-label="Week 2"><textarea name="txt2" cols="16" rows="8" ><%= itemtab[1].name %></textarea></td>
+              <input type="hidden" name="idtxt2" value="<%=itemtab[1].id%>"></input>
+            <!-- Week 3 -->
+            <td data-label="Week 3"><textarea name="txt3"  cols="16" rows="8" ><%= itemtab[2].name %> </textarea></td>
+              <input type="hidden" name="idtxt3" value="<%=itemtab[2].id%>"></input>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+<% } %> 

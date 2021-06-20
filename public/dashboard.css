@@ -1,0 +1,134 @@
+/* User profile */
+#profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.6;   
+    margin: 100px 0 100px 0;
+}
+.profile_card{
+    width: 420px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+.profile_photo{
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+    margin: 0 auto 10px;
+}
+.profile_name{
+    font-weight: 700;
+    font-size: 28px;
+}
+.email{
+    color: #5496ff;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 16px;
+}
+.location{
+    color: #718096;
+    font-weight: normal;
+    margin-bottom: 1rem;
+    font-size: 14px;
+}
+.fa-map-marker-alt, .fa-home, .fa-times-circle, 
+.fa-columns, .fa-calendar-check-o, .fa-trophy {
+    margin-right: 5px;
+}
+.contacts{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+.contacts a{
+    display: block;
+    flex-basis: 49%;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 13px;
+    border-radius: 99rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.home{
+    background-color: #e2e8f0;
+    color: inherit;
+}
+.home a:hover{
+    color: #5496ff;
+}
+.logout{
+    background-color: #371a45;
+    color: #fff;
+}
+.logout a:hover{
+    color: #5496ff;
+}
+.planners_title{
+    margin: 15px 0;
+    font-weight: 700;
+    font-size: 28px;
+}
+.navigation1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navigation1 a{
+    display: block;
+    flex-basis: 49%;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 13px;
+    border-radius: 99rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.sprint_btn{
+    background-color: #e2e8f0;
+    color: inherit;
+}
+.sprint_btn a:hover{
+    color: #5496ff;
+}
+.weekly_btn{
+    background-color: #e2e8f0;
+    color: inherit;
+}
+.weekly_btn a:hover{
+    color: #5496ff;
+}
+.navigation2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+.navigation2 a{
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 13px;
+    border-radius: 99rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.achievement_btn{
+    background-color: #e2e8f0;
+    color: inherit;
+}
+.achievement_btn a:hover{
+    color: #5496ff;;
+}

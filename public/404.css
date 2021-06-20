@@ -1,0 +1,97 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-size: 350px;
+}
+*{
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+}
+
+/* Page Not Found Section */
+.page-not-found img{
+    height: 200px;
+}
+.page-not-found{
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -60%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.page-not-found h1{
+    color: #371a45;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 2rem;
+    margin: 20px 0 0 0;
+}
+.page-not-found p{
+    color: #808080;
+    font-size: 1rem;
+    width: 60%;
+    text-align: center;
+    margin: 10px;
+    font-weight: 300;
+}
+.page-not-found p a{
+    color: #f92323;
+    font-weight: 600;
+    text-decoration: underline;
+}
+.page-not-found button{
+    width: 120px;
+    height: 40px;
+    margin: 10px;
+    background-color: #371a45;
+    color: white;
+    text-transform: uppercase;
+    outline: none;
+    border: none;
+    letter-spacing: 1px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+button:hover{
+    background-color: #f92323;
+    transition: all ease;
+}
+@media(max-width: 900px){
+    .page-not-found p{
+        width: 100%;
+    }
+}
+@media(max-width: 600px){
+    .page-not-found{
+        width: 100%;
+    }
+    .page-not-found img{
+        height: 150px;
+    }
+    .page-not-found h1{
+        font-size: 1.4rem;
+    }
+    .page-not-found p{
+        width: 280px;
+    }
+    .page-not-found button{
+        width: 100px;
+        height: 35px;
+        font-size: 85%;
+    }
+}
+@media(max-width: 400px){
+    .page-not-found img{
+        height: 120px;
+    }
+    .page-not-found button{
+        width: 85px;
+        height: 30px;
+        font-size: 70%;
+    }
+}

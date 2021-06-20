@@ -1,0 +1,221 @@
+<!-- CSS -->
+<link rel="stylesheet" href="weekly.css"> 
+
+<%if (!login_info){ %> 
+
+  <!-- Banner -->
+  <div class="banner">
+    <div class="content">
+      <h2>Weekly planner</h2>
+      <p>This section is intended for supporting organization skills. Here you can make a 
+        schedule for the week. Plan the next day in the evening. Define three priority 
+        tasks and start your day by working on them.</p>
+      <a href="/users/login" class="button mr-2">Log in</a>
+      <a href="/users/register" class="button">Register</a>
+    </div>
+    <img src="animation.gif" class="image">
+  </div>
+
+  <!-- Manual -->
+  <section class="manual">
+    <h1 class="manual-title">Weekly Planner Page User Guide</h1>
+    <div class="manual-items">
+      <div class="manual-item">
+        <div class="step-dot"></div>
+        <div class="step-content">
+          <h3>1st step</h3>
+          <p>Register on the website via email and go to the weekly page.</p>
+        </div>
+      </div>
+      <div class="manual-item">
+        <div class="step-dot"></div>
+        <div class="step-content">
+          <h3>2nd step</h3>
+          <p>Add all your small and big tasks by writing proper descriptions in the box.</p>
+        </div>
+      </div>
+      <div class="manual-item">
+        <div class="step-dot"></div>
+        <div class="step-content">
+          <h3>3rd step</h3>
+          <p>Mark your completed targets and delete them if it is necessary.</p>
+        </div>
+      </div>
+      <div class="manual-item">
+        <div class="step-dot"></div>
+        <div class="step-content">
+          <h3>4th step</h3>
+          <p>You can see the list of your work done in user's profile.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<% }  else { %>
+
+  <h1 class="pg_heading">Week 2</h1>
+
+  <!-- Page navigator-->
+  <div class="navigation">
+    <a href="/weekly"><i class="fa fa-arrow-left"></i>Week 1</a>
+    <a href="/weekly3">Week 3<i class="fa fa-arrow-right"></i></a>
+  </div>
+
+  <!-- Weekly boxes -->
+  <div class="todo_box_container">
+    <div class="todo_box">
+      <!-- Monday -->
+      <div class="box">
+        <h1 class="heading-text"> <%= listTitle %> </h1>
+      </div>
+    
+      <div class="box">
+        <% newListItems.forEach(function(item){ %>
+        <form action="/delete2" method="post">
+          <div class="item">
+            <input type="checkbox" name="checkbox" value="<%=item._id%>" onChange="this.form.submit()">
+            <p class="item_name" ><%=item.name%></p>
+            <input type="hidden" name="item_name1" value="<%=item.name%>"></input>
+          </div>
+          <input type="hidden" name="listName" value="<%= listTitle %>"></input>
+        </form>
+        <% }) %>
+        <form class="item" action="/weekly2" method="post">
+          <input class="input_plan" type="text" name="newItem" placeholder="Enter your plan here..." autocomplete="off">
+          <button class="sbmtbtn" type="submit" name="list" value="<%= listTitle %>"><i class="fa fa-plus"></i></button>
+        </form>
+      </div>
+
+    </div>
+
+    <div class="todo_box">
+      <!-- Tuesday -->
+      <div class="box">
+        <h1 class="heading-text"> <%= listTitle2 %> </h1>
+      </div>
+    
+      <div class="box">
+        <% newListItems2.forEach(function(item){ %>
+        <form action="/delete2" method="post">
+          <div class="item">
+            <input type="checkbox" name="checkbox2" value="<%=item._id%>" onChange="this.form.submit()">
+            <p class="item_name"><%=item.name%></p>
+            <input type="hidden" name="item_name2" value="<%=item.name%>"></input>
+          </div>
+          <input type="hidden" name="listName2" value="<%= listTitle2 %>"></input>
+        </form>
+        <% }) %>
+        <form class="item" action="/weekly2" method="post">
+          <input class="input_plan" type="text" name="newItem2" placeholder="Enter your plan here..." autocomplete="off">
+          <button class="sbmtbtn" type="submit" name="list" value="<%= listTitle2 %>"><i class="fa fa-plus"></i></button>
+        </form>
+      </div>
+
+    </div>
+
+    <div class="todo_box">
+      <!-- Wednesday -->
+      <div class="box">
+        <h1 class="heading-text"> <%= listTitle3 %> </h1>
+      </div>
+    
+      <div class="box">
+        <% newListItems3.forEach(function(item){ %>
+        <form action="/delete2" method="post">
+          <div class="item">
+            <input type="checkbox" name="checkbox3" value="<%=item._id%>" onChange="this.form.submit()">
+            <p class="item_name"><%=item.name%></p>
+            <input type="hidden" name="item_name3" value="<%=item.name%>"></input>
+          </div>
+          <input type="hidden" name="listName3" value="<%= listTitle3 %>"></input>
+        </form>
+        <% }) %>
+        <form class="item" action="/weekly2" method="post">
+          <input class="input_plan" type="text" name="newItem3" placeholder="Enter your plan here..." autocomplete="off">
+          <button class="sbmtbtn" type="submit" name="list" value="<%= listTitle3 %>"><i class="fa fa-plus"></i></button>
+        </form>
+      </div>
+
+    </div>
+
+    <div class="todo_box">
+      <!-- Thursday  -->
+      <div class="box">
+        <h1 class="heading-text"> <%= listTitle4 %> </h1>
+      </div>
+  
+      <div class="box">
+        <% newListItems4.forEach(function(item){ %>
+        <form action="/delete2" method="post">
+          <div class="item">
+            <input type="checkbox" name="checkbox4" value="<%=item._id%>" onChange="this.form.submit()">
+            <p class="item_name"><%=item.name%></p>
+            <input type="hidden" name="item_name4" value="<%=item.name%>"></input>
+          </div>
+          <input type="hidden" name="listName4" value="<%= listTitle4 %>"></input>
+        </form>
+        <% }) %>
+        <form class="item" action="/weekly2" method="post">
+          <input class="input_plan" type="text" name="newItem4" placeholder="Enter your plan here..." autocomplete="off">
+          <button class="sbmtbtn" type="submit" name="list" value="<%= listTitle4 %>"><i class="fa fa-plus"></i></button>
+        </form>
+      </div>
+
+    </div>
+
+    <div class="todo_box">
+      <!-- Friday -->
+      <div class="box">
+        <h1 class="heading-text"> <%= listTitle5 %> </h1>
+      </div>
+    
+      <div class="box">
+        <% newListItems5.forEach(function(item){ %>
+        <form action="/delete2" method="post">
+          <div class="item">
+            <input type="checkbox" name="checkbox5" value="<%=item._id%>" onChange="this.form.submit()">
+            <p class="item_name"><%=item.name%></p>
+            <input type="hidden" name="item_name5" value="<%=item.name%>"></input>
+          </div>
+          <input type="hidden" name="listName5" value="<%= listTitle5 %>"></input>
+        </form>
+        <% }) %>
+        <form class="item" action="/weekly2" method="post">
+          <input class="input_plan" type="text" name="newItem5" placeholder="Enter your plan here..." autocomplete="off">
+          <button class="sbmtbtn" type="submit" name="list" value="<%= listTitle5 %>"><i class="fa fa-plus"></i></button>
+        </form>
+      </div>
+
+    </div>
+
+    <div class="todo_box">
+      <!-- Saturday  -->
+      <div class="box">
+        <h1 class="heading-text"> <%= listTitle6 %> </h1>
+      </div>
+    
+      <div class="box">
+        <% newListItems6.forEach(function(item){ %>
+        <form action="/delete2" method="post">
+          <div class="item">
+            <input type="checkbox" name="checkbox6" value="<%=item._id%>" onChange="this.form.submit()">
+            <p class="item_name"><%=item.name%></p>
+            <input type="hidden" name="item_name6" value="<%=item.name%>"></input>
+          </div>
+          <input type="hidden" name="listName6" value="<%= listTitle6 %>"></input>
+        </form>
+        <% }) %>
+        <form class="item" action="/weekly2" method="post">
+          <input class="input_plan" type="text" name="newItem6" placeholder="Enter your plan here..." autocomplete="off">
+          <button class="sbmtbtn" type="submit" name="list" value="<%= listTitle6 %>"><i class="fa fa-plus"></i></button>
+        </form>
+      </div>
+
+    </div>
+  </div> 
+
+  <form class="deletebtn" action="/deleteAll2" method="post"> 
+    <button class="dltbtn" type="submit" name="deleteAll">Delete All</button> 
+  </form>
+
+<% } %> 

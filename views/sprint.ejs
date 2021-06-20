@@ -1,0 +1,119 @@
+<!-- CSS -->
+<link rel="stylesheet" href="sprint.css">
+
+<%if (!login_info){ %> 
+
+  <!-- Banner -->
+  <div class="banner">
+    <div class="content">
+      <h2>Sprint</h2>
+      <p>The main focus in this section is to shape desired habits and routine of 
+        the user by following certain deadlines that will help in task management 
+        skills. Try to make your goals as specific as possible and avoid getting 
+        too big at the start. The optimal time budget for one goal is from 3 to 5 
+        hours per week (9-15 hours per sprint).</p>
+      <a href="/users/login" class="button mr-2">Log in</a>
+      <a href="/users/register" class="button">Register</a>
+    </div>
+    <img src="animation.gif" class="image">
+  </div>
+
+  <!-- Manual -->
+  <section class="manual">
+    <h1 class="manual-title">Sprint Page User Guide</h1>
+    <div class="manual-items">
+      <div class="manual-item">
+        <div class="step-dot"></div>
+        <div class="step-content">
+          <h3>1st step</h3>
+          <p>Register on the website via email and go to the sprint page.</p>
+        </div>
+      </div>
+      <div class="manual-item">
+        <div class="step-dot"></div>
+        <div class="step-content">
+          <h3>2nd step</h3>
+          <p>Add your tasks by writing proper descriptions in the box and selecting appropriate categories (personal, work, school, cleaning).</p>
+        </div>
+      </div>
+      <div class="manual-item">
+        <div class="step-dot"></div>
+        <div class="step-content">
+          <h3>3rd step</h3>
+          <p>Choose the due date for each task and try to organize your deals before the deadline.</p>
+        </div>
+      </div>
+      <div class="manual-item">
+        <div class="step-dot"></div>
+        <div class="step-content">
+          <h3>4th step</h3>
+          <p>Mark your completed targets and delete them if it is necessary.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<% }  else { %> 
+
+  <!-- Task create table-->
+  <section class="main">
+    <h1 class="title_table">Sprint</h1>
+    <form action="/create-task" method="POST">
+      <table>
+        <thead>
+          <th>Add task</th>
+          <th>Category</th>
+          <th>Date</th>
+          <th></th>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Add Task"><input type="text" name="description" autocomplete="off" placeholder="Enter your task" required></td>
+            <td data-label="Category"><select name="category" required>
+              <option>Personal</option>
+              <option>Work</option>
+              <option>School</option>
+              <option>Cleaning</option>
+              <option>Other</option>
+            </select></td>
+            <td data-label="Date"> <input type="date" name="date" required></td>
+            <td data-label=""><input type="submit" class="addtask_btn" id="add" value="ADD TASK"></td>
+          </tr>
+        </tbody>        
+      </table>             
+    </form>
+  </section>
+
+  <!-- Delete task table -->
+  <section class="main">          
+    <h1 class="title_table">Tasks list</h1>
+    <form action="/delete-task" method="GET">
+      <table>
+        <thead>
+          <th>Select</th>
+          <th>Task</th>
+          <th>Category</th>
+          <th>Due date</th>
+        </thead>
+        <%  task.forEach(function(i){ %>
+        <tbody>
+          <tr>
+            <td data-label="Select" class="checkbox"><input type="checkbox" name="<%= i._id %>"></td>      
+            <td data-label="Task"><p id="task-description"><%= i.description %></td>
+            <td data-label="Category"><p id="task-category"><%= i.category %></p></td>
+            <td data-label="Due date"><p id="due-date">                            
+              <% var date=""; %>   
+              <%  date+=i.date%>   
+              <%  date = date.substring(0,15).split(" ")%> 
+              <% date=date[2] + ' ' + date[1] + ' ' +date[3] + " | "+date[0]%>  
+              <%= date %>   
+            </p></td>
+          </tr>
+        </tbody>
+        <% }) %>                     
+      </table>
+      <input type="submit" class="btn_submit" value="DELETE TASK">
+    </form>
+  </section>
+ 
+<% } %> 
